@@ -56,48 +56,28 @@ git clone https://github.com/Livox-SDK/livox_ros_driver2.git ws_livox/src/livox_
 
 ### 2.3 Build the Livox ROS Driver 2:
 
-#### For ROS (take Noetic as an example):
-```shell
-source /opt/ros/noetic/setup.sh
-./build.sh ROS1
-```
+This package is configured for ROS2 Humble. Build it using colcon:
 
-#### For ROS2 Foxy:
-```shell
-source /opt/ros/foxy/setup.sh
-./build.sh ROS2
-```
-
-#### For ROS2 Humble:
 ```shell
 source /opt/ros/humble/setup.sh
-./build.sh humble
+cd /path/to/your/workspace
+colcon build --packages-select livox_ros_driver2
 ```
 
 ### 2.4 Run Livox ROS Driver 2:
 
-#### For ROS:
-
 ```shell
-source ../../devel/setup.sh
-roslaunch livox_ros_driver2 [launch file]
+source /path/to/your/workspace/install/setup.sh
+ros2 launch livox_ros_driver2 [launch file]
 ```
 
-in which,  
-
-* **livox_ros_driver2** : is the ROS package name of Livox ROS Driver 2;
-* **[launch file]** : is the ROS launch file you want to use; the 'launch_ROS1' folder contains several launch samples for your reference;  
+Where **[launch file]** is the ROS2 launch file you want to use; the 'launch' folder contains several launch samples for your reference.
 
 An rviz launch example for HAP LiDAR would be:
 
 ```shell
-roslaunch livox_ros_driver2 rviz_HAP.launch
+ros2 launch livox_ros_driver2 rviz_HAP_launch.py
 ```
-
-#### For ROS2:
-```shell
-source ../../install/setup.sh
-ros2 launch livox_ros_driver2 [launch file]
 ```
 
 in which,  
